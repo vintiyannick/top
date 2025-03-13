@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieblinsorte der Webmapper:innen</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+    <header>
+        <img src="images/header.jpg" alt="Außenanischt des Juventus Stadiums">
+        <!-- https://commons.wikimedia.org/wiki/Category:Juventus_Stadium?uselang=de#/media/File:Allianz_stadium_in_Italy_hosting_the_Nations_League_2021_finals.jpg -->
+        <a href="https://github.com/vintiyannick/top"><img src="images/user.jpg" alt="Stühle im Stadion"></a>
+    </header>
+    <main>
+        <h1>Stadionvorstellung</h1>
+        <h2>Juventus Stadium</h2>
+        <p>Das <strong>Juventus Stadium</strong> ist ein Fußballstadion in der italienischen Stadt Turin; aufgrund eines Namenssponsorings heißt es seit Juli 2017 offiziell Allianz Stadium. Der italienische <em>Fussballrekordmeister</em> Juventus Turin ist Eigentümer und trägt darin seine Heimspiele aus. Es bietet aktuell 41.507 Zuschauern Platz und wird von der UEFA in die Kategorie 4 eingeordnet.</p>
+        <p>Das Stadion wurde am 8. September 2011 eröffnet. Gebaut wurde es im Norden von Turin auf dem Grundstück, auf dem sich von 1990 bis 2009 das ehemalige Stadio delle Alpi mit 69.041 Plätzen befunden hatte. Markantestes Merkmal des neuen Stadions sind die beiden 86 Meter hohen Pfeiler an der Nord- und Südseite hinter den Toren. Sie tragen über Stahlseile die Dachkonstruktion.</p>
+        <a href="https://de.wikipedia.org/wiki/Juventus_Stadium">Quelle: Wikipedia</a>
+        <figure>
+            <img src="images/attraction.jpg" alt="Innenansicht Juventus Stadium">
+            <!-- Bild von https://commons.wikimedia.org/wiki/Category:Juventus_Stadium?uselang=de#/media/File:Juventus_v_Real_Madrid,_Champions_League,_Stadium,_Turin,_2013_(cropped).jpg-->
+            <figcaption>Innenansicht vom Juventus Stadium (Quelle: <a href="https://commons.wikimedia.org/wiki/Category:Juventus_Stadium?uselang=de#/media/File:Juventus_v_Real_Madrid,_Champions_League,_Stadium,_Turin,_2013_(cropped).jpg">Wikimedia Commons</a>)</figcaption>
+        </figure>
+
+        <h3>Übersichtskarte</h3>
+        <div id="map" style="width:900px;height:600px;border:1px solid silver"></div>
+        <h3>Links</h3>
+        <ul>
+            <li><a href="https://www.juventus.com/en/allianz-stadium/">Juventus Stadium</a></li>
+            <li><a href="https://www.transfermarkt.at/juventus-turin/stadion/verein/506">Daten zum Fussballverein</a></li>
+            <li><a href="https://www.sport1.de/news/internationaler-fussball/serie-a/2017/06/juventus-turin-benennt-sein-stadion-in-allianz-stadium-um">Stadionname</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="https://jessimeteo.github.io/top/">vorhergehende Etappe</a>
+            <a href="https://vintiyannick.github.io/top/">diese Etappe</a>
+            <a href="https://Ellinnaa.github.io/top/">nächste Etappe</a>
+        </nav>
+    </footer>
+
+    <script>
+        var map = L.map('map').setView([45.109544,  7.641281], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var marker = L.marker([45.109544,  7.641281]).addTo(map);
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    </script>
+</body>
+
+</html>
+

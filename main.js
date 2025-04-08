@@ -199,6 +199,10 @@ const STOPS = [
     },
 ];
 
+for (let i = 0; i < STOPS.length; i++) {
+    console.log(i, STOPS[i], STOPS[i].title);
+}
+
 // Karte initialisieren
 let map = L.map('map');
 

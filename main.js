@@ -202,6 +202,20 @@ const STOPS = [
 // Karte initialisieren
 let map = L.map('map');
 
+// Overlays definieren
+let overlays = {
+    STOPS: L.featureGroup().addTo(map),
+}
+
+// Layercontrol
+L.control.layers({
+    "OpenStreetMap": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('Esri.WorldTopoMap').addTo(map),
+    "WorldImagery": L.tileLayer.provider('Esri.WorldImagery').addTo(map),
+}, {
+    "Etappen": overlays.STOPS,
+}).addTo(map);
+
 // Maßstab
 L.control.scale({
     imperial: false,

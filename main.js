@@ -204,16 +204,16 @@ let map = L.map('map');
 
 // Overlays definieren
 let overlays = {
-    STOPS: L.featureGroup().addTo(map),
+    marker: L.featureGroup().addTo(map),
 }
 
 // Layercontrol
 L.control.layers({
     "OpenStreetMap": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
-    "OpenTopoMap": L.tileLayer.provider('Esri.WorldTopoMap').addTo(map),
-    "WorldImagery": L.tileLayer.provider('Esri.WorldImagery').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('Esri.WorldTopoMap'),
+    "WorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
 }, {
-    "Etappen": overlays.STOPS,
+    "Etappen": overlays.marker,
 }).addTo(map);
 
 // Maßstab
@@ -231,8 +231,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 for (let i=0; i<STOPS.length; i++) {
 
 // Marker zeichnen
- let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
- marker.addTo(overlays.STOPS);
+ let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(overlays.marker);
+
 
  // Popup definieren
 marker.bindPopup(`
